@@ -1,6 +1,8 @@
 // global variables
 
-const cartInfoBtn = document.querySelector('#cart-info');
+ const cartInfoBtn = document.querySelector('#cart-info');
+// const cartInfoBtn = document.querySelector('.navbar-toggler');
+
 
 const itemCount = document.querySelector('#item-count');
 const itemTotal = document.querySelector('#item-total');
@@ -19,5 +21,10 @@ const cartClear = document.querySelector('#clear-cart');
 const storeImg = document.querySelector('.store-img');
 
 // cart info function
+
+cartInfoBtn.addEventListener('click', function() {
+    console.log('hello');
+    cartText.classList.toggle('show')
+})
 
 // click icon and add function
