@@ -49,23 +49,44 @@ cartBtn.forEach(btn => {
         
 
         // console.log(name)
-
-
        //  console.log(item);
-       }
-       
-       
-        // alert('Item added the cart')
-        
-        // gather value of items and picture
-       
-        // addItem(btn)
-      
-        // console.log('check itemPrice: ' + itemPrice);
 
-        // add the values and pictures in cart
+
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item', 'd-flex', 'justify-content-between', 'text-capitalize', 'my-3')
+
+        cartItem.innerHTML = `
+        <img src="${item.img}" class="img-fluid rounded-circle" id="item-img" alt="">
+          <div class="item-text">
+
+            <p id="cart-item-title" class="font-weight-bold mb-0">${item.name}</p>
+            <span>$</span>
+            <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.price}</span>
+          </div>
+          <a href="#" id='cart-item-remove' class="cart-item-remove">
+            <i class="fas fa-trash"></i>
+          </a>
+          </div>`;
+        
+        // select card
+
+        const card = document.querySelector('#cart');
+        const total = document.querySelector('.cart-total-container');
+
+        card.insertBefore(cartItem, total);
+        alert('item added to the cart');
+
+        showTotals();
+
+       }
     })
 })
+
+// show totals
+
+function showTotals() {
+    console.log('hello')
+}
 
 /*
 function addItem(button) {
