@@ -85,7 +85,37 @@ cartBtn.forEach(btn => {
 // show totals
 
 function showTotals() {
-    console.log('hello')
+    
+    const total = [];
+    const items = document.querySelectorAll('.cart-item-price');
+
+  
+    items.forEach(item => {
+        // parsefloat method for converting string to number
+        total.push(parseFloat(item.textContent));
+    })
+
+   // console.log(total);
+
+   const totalMoney = total.reduce(function(total, item) {
+      
+    total += item;
+    
+    return total;
+   }, 0);
+
+   const finalMoney = totalMoney.toFixed(2);
+
+   console.log(finalMoney);
+
+   let cartTotal = document.querySelector('#cart-total');
+   cartTotal.textContent = finalMoney;
+
+   let itemCount = document.querySelector('#item-count');
+   let itemTotal = document.querySelector('.item-total');
+
+   itemTotal.textContent = finalMoney;
+   itemCount.textContent = total.length;
 }
 
 /*
