@@ -179,3 +179,55 @@
     item.style.backgroundImage = `url(${imageList[counter]})`;
   });
 })();
+
+// filter code
+
+(function () {
+  const buttons = document.querySelectorAll(".filter-btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      let value = event.target.dataset.filter;
+
+      const items = document.querySelectorAll(".store-item");
+
+      items.forEach((item) => {
+        if (value === "all") {
+          item.style.display = "block";
+        } else {
+          if (item.classList.contains(value)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        }
+      });
+    });
+  });
+})();
+
+(function () {
+  const searchInput = document.querySelector("#search-item");
+
+  searchInput.addEventListener("keyup", function () {
+    let value = searchInput.value.toLowerCase().trim();
+
+    const items = document.querySelectorAll(".store-item");
+
+    items.forEach((item) => {
+      let type = item.dataset.item;
+
+      let length = value.length;
+
+      let match = type.slice(0, length);
+
+      if (value === match) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+})();
